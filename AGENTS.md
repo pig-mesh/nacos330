@@ -74,9 +74,9 @@ mvn '-Prelease-nacos,!dev' -Dmaven.test.skip=true clean install -U
 mvn test
 
 # Run standalone-server integration tests
-mvn -pl test/openapi-test -Pintegration-test -DskipTests=false verify
-mvn -pl test/java-sdk-test -Pjava-sdk-integration-test -DskipTests=false verify
-mvn -pl test/maintainer-sdk-test -Pmaintainer-sdk-integration-test -DskipTests=false verify
+mvn -Ptests -am -pl test/openapi-test -Pintegration-test -DskipTests=false verify
+mvn -Ptests -am -pl test/java-sdk-test -Pjava-sdk-integration-test -DskipTests=false verify
+mvn -Ptests -am -pl test/maintainer-sdk-test -Pmaintainer-sdk-integration-test -DskipTests=false verify
 
 # Format code (run before commit)
 mvn spotless:apply

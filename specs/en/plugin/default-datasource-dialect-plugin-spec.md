@@ -37,6 +37,7 @@ The current implementation packages these database families:
 | `mysql` | `MysqlDatabaseDialect` and `DefaultDatabaseDialect` | `impl.mysql` |
 | `postgresql` | `PostgresqlDatabaseDialect` | `impl.postgresql` |
 | `oracle` | `OracleDatabaseDialect` | `impl.oracle` |
+| `dm` | `DamengDatabaseDialect` | `impl.dameng` |
 
 Each database package must register both
 `com.alibaba.nacos.plugin.datasource.dialect.DatabaseDialect` and
@@ -91,3 +92,18 @@ Built-in dialect implementations do not own datasource connection or pool config
 inherit `PluginConfigSpec` through `DatabaseDialect` but declare no definitions, so they are exposed
 as `configurable=false`; datasource module configuration is defined by the parent dialect plugin
 spec.
+
+## PigMesh Dameng 3.3.0
+
+The `dm` dialect targets Dameng 8 and supplies `dm.jdbc.driver.DmDriver` as the
+default JDBC driver. The driver `com.dameng:DmJdbcDriver18:8.1.3.140` is provided
+and optional; deploy it separately. The plugin retains LIMIT pagination and
+uppercase generated keys, and explicitly escapes LIKE predicates.
+
+Use `dm-schema.sql` for a new database. Before upgrading an existing 3.2.4
+schema, widen `permissions.resource` to 512 characters and the `c_desc` columns
+of `ai_resource` and `ai_resource_version` to 2048 characters, and create the
+`ai_resource_search_document`, `ai_resource_search_chunk`, and `ai_resource_task`
+tables and their indexes from the new schema. Back up the database first; do not
+rerun the full creation script against an existing database. Complete legacy
+beta/tag migration before starting 3.3.0.

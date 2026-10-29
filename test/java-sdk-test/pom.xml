@@ -20,9 +20,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.alibaba.nacos</groupId>
+        <groupId>io.github.pig-mesh.nacos</groupId>
         <artifactId>nacos-test</artifactId>
-        <version>${revision}</version>
+        <version>3.3.0</version>
     </parent>
 
     <artifactId>java-sdk-test</artifactId>
@@ -202,14 +202,14 @@
                                 <configuration>
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>com.alibaba.nacos</groupId>
+                                            <groupId>io.github.pig-mesh.nacos</groupId>
                                             <artifactId>nacos-api</artifactId>
-                                            <version>3.2.4</version>
+                                            <version>3.3.0</version>
                                         </artifactItem>
                                         <artifactItem>
-                                            <groupId>com.alibaba.nacos</groupId>
+                                            <groupId>io.github.pig-mesh.nacos</groupId>
                                             <artifactId>nacos-client</artifactId>
-                                            <version>3.2.4</version>
+                                            <version>3.3.0</version>
                                         </artifactItem>
                                     </artifactItems>
                                     <outputDirectory>${project.build.directory}/compatibility-libs</outputDirectory>

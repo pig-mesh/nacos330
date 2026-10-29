@@ -19,9 +19,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.alibaba.nacos</groupId>
+        <groupId>io.github.pig-mesh.nacos</groupId>
         <artifactId>nacos-all</artifactId>
-        <version>${revision}</version>
+        <version>3.3.0</version>
     </parent>
     
     <artifactId>nacos-maintainer-client</artifactId>
@@ -41,7 +41,7 @@
             <artifactId>commons-collections</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-common</artifactId>
             <exclusions>
                 <exclusion>
@@ -75,7 +75,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-client-basic</artifactId>
         </dependency>
     </dependencies>

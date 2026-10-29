@@ -34,6 +34,7 @@ Nacos 服务端发行包一起发布的数据库方言和表级 mapper，是
 | `mysql` | `MysqlDatabaseDialect` 和 `DefaultDatabaseDialect` | `impl.mysql` |
 | `postgresql` | `PostgresqlDatabaseDialect` | `impl.postgresql` |
 | `oracle` | `OracleDatabaseDialect` | `impl.oracle` |
+| `dm` | `DamengDatabaseDialect` | `impl.dameng` |
 
 每个数据库包必须同时注册
 `com.alibaba.nacos.plugin.datasource.dialect.DatabaseDialect` 和
@@ -78,3 +79,16 @@ Nacos 从 `nacos.plugin.datasource-dialect.type` 选择启动数据库类型。
 内置方言实现不持有数据源连接或连接池配置。它们通过 `DatabaseDialect` 继承
 `PluginConfigSpec`，但不声明 definitions，因此以 `configurable=false` 暴露。Datasource
 模块配置由上层数据源方言插件规范定义。
+
+## PigMesh 达梦 3.3.0
+
+`dm` 方言面向达梦 8，默认 JDBC 驱动类为 `dm.jdbc.driver.DmDriver`。
+`com.dameng:DmJdbcDriver18:8.1.3.140` 保持 provided 和 optional，部署时需要单独提供。
+插件使用 LIMIT 分页、大写生成主键，并为 LIKE 谓词显式声明转义字符。
+
+新建数据库使用 `dm-schema.sql`。从 3.2.4 升级前，先备份数据库，将
+`permissions.resource` 扩展为 512 字符，将 `ai_resource` 和
+`ai_resource_version` 的 `c_desc` 扩展为 2048 字符，并根据新 schema 创建
+`ai_resource_search_document`、`ai_resource_search_chunk`、`ai_resource_task`
+及对应索引。不要对已有数据库重新执行完整建表脚本。旧 beta/tag 数据迁移必须在启动
+3.3.0 前完成。

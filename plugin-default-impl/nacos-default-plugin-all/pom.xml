@@ -20,71 +20,76 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>nacos-plugin-default-impl</artifactId>
-        <groupId>com.alibaba.nacos</groupId>
-        <version>${revision}</version>
+        <groupId>io.github.pig-mesh.nacos</groupId>
+        <version>3.3.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>nacos-default-plugin-all</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>default-auth-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-ldap-auth-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-oidc-auth-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>default-control-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-default-ai-pipeline-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-default-ai-importer-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-default-ai-trace-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-default-ai-vector-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-mysql</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-derby</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-postgresql</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-oracle</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.pig-mesh.nacos</groupId>
+            <artifactId>nacos-datasource-plugin-dameng</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -160,6 +165,8 @@
                                       tofile="${project.basedir}/../../distribution/conf/pg-upgrade-visibility-permission-resource.sql" overwrite="true"/>
                                 <copy file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-oracle/src/main/resources/META-INF/oracle-schema.sql"
                                       tofile="${project.basedir}/../../distribution/conf/oracle-schema.sql" overwrite="true"/>
+                                <copy file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-dameng/src/main/resources/META-INF/dm-schema.sql"
+                                      tofile="${project.basedir}/../../distribution/conf/dm-schema.sql" overwrite="true"/>
                                 <copy file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-oracle/src/main/resources/META-INF/oracle-upgrade-visibility-permission-resource.sql"
                                       tofile="${project.basedir}/../../distribution/conf/oracle-upgrade-visibility-permission-resource.sql" overwrite="true"/>
                             </target>
@@ -191,6 +198,8 @@
                                            property="schema.source.pg.visibility.upgrade.exists"/>
                                 <available file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-oracle/src/main/resources/META-INF/oracle-schema.sql"
                                            property="schema.source.oracle.exists"/>
+                                <available file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-dameng/src/main/resources/META-INF/dm-schema.sql"
+                                           property="schema.source.dm.exists"/>
                                 <available file="${project.basedir}/../nacos-default-datasource-plugin/nacos-datasource-plugin-oracle/src/main/resources/META-INF/oracle-upgrade-visibility-permission-resource.sql"
                                            property="schema.source.oracle.visibility.upgrade.exists"/>
                                 <fail unless="schema.source.derby.exists" message="Missing derby schema source in datasource plugin."/>
@@ -202,6 +211,7 @@
                                 <fail unless="schema.source.pg.grant.exists" message="Missing postgresql read/write grant script in datasource plugin."/>
                                 <fail unless="schema.source.pg.visibility.upgrade.exists" message="Missing postgresql visibility permission upgrade script in datasource plugin."/>
                                 <fail unless="schema.source.oracle.exists" message="Missing oracle schema source in datasource plugin."/>
+                                <fail unless="schema.source.dm.exists" message="Missing dameng schema source in datasource plugin."/>
                                 <fail unless="schema.source.oracle.visibility.upgrade.exists" message="Missing oracle visibility permission upgrade script in datasource plugin."/>
 
                                 <available file="${project.basedir}/../../distribution/conf/derby-schema.sql"
@@ -222,6 +232,8 @@
                                            property="schema.output.pg.visibility.upgrade.exists"/>
                                 <available file="${project.basedir}/../../distribution/conf/oracle-schema.sql"
                                            property="schema.output.oracle.exists"/>
+                                <available file="${project.basedir}/../../distribution/conf/dm-schema.sql"
+                                           property="schema.output.dm.exists"/>
                                 <available file="${project.basedir}/../../distribution/conf/oracle-upgrade-visibility-permission-resource.sql"
                                            property="schema.output.oracle.visibility.upgrade.exists"/>
                                 <fail unless="schema.output.derby.exists" message="Missing derby schema in distribution/conf after packaging."/>
@@ -233,6 +245,7 @@
                                 <fail unless="schema.output.pg.grant.exists" message="Missing postgresql grant script in distribution/conf after packaging."/>
                                 <fail unless="schema.output.pg.visibility.upgrade.exists" message="Missing postgresql visibility permission upgrade script in distribution/conf after packaging."/>
                                 <fail unless="schema.output.oracle.exists" message="Missing oracle schema in distribution/conf after packaging."/>
+                                <fail unless="schema.output.dm.exists" message="Missing dameng schema in distribution/conf after packaging."/>
                                 <fail unless="schema.output.oracle.visibility.upgrade.exists" message="Missing oracle visibility permission upgrade script in distribution/conf after packaging."/>
 
                                 <available file="${project.basedir}/../../distribution/plugins/nacos-ldap-auth-plugin-${project.version}.jar"
@@ -273,7 +286,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.basedir}/../../distribution/plugins</outputDirectory>
-                            <includeArtifactIds>default-auth-plugin,nacos-ldap-auth-plugin,nacos-oidc-auth-plugin,default-control-plugin,nacos-default-ai-pipeline-plugin,nacos-default-ai-importer-plugin,nacos-default-ai-trace-plugin,nacos-default-ai-vector-plugin,nacos-datasource-plugin-mysql,nacos-datasource-plugin-derby,nacos-datasource-plugin-postgresql,nacos-datasource-plugin-oracle,mysql-connector-j,derby,derbyshared,derbytools,postgresql</includeArtifactIds>
+                            <includeArtifactIds>default-auth-plugin,nacos-ldap-auth-plugin,nacos-oidc-auth-plugin,default-control-plugin,nacos-default-ai-pipeline-plugin,nacos-default-ai-importer-plugin,nacos-default-ai-trace-plugin,nacos-default-ai-vector-plugin,nacos-datasource-plugin-mysql,nacos-datasource-plugin-derby,nacos-datasource-plugin-postgresql,nacos-datasource-plugin-oracle,nacos-datasource-plugin-dameng,mysql-connector-j,derby,derbyshared,derbytools,postgresql</includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>

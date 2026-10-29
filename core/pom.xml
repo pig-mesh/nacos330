@@ -19,9 +19,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.alibaba.nacos</groupId>
+        <groupId>io.github.pig-mesh.nacos</groupId>
         <artifactId>nacos-all</artifactId>
-        <version>${revision}</version>
+        <version>3.3.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -43,7 +43,7 @@
             <artifactId>nacos-consistency</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-persistence</artifactId>
         </dependency>
         
@@ -52,11 +52,11 @@
             <artifactId>nacos-auth</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-trace-plugin</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-visibility-plugin</artifactId>
         </dependency>
 
@@ -168,29 +168,29 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-control-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-config-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-encryption-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-custom-environment-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

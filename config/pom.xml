@@ -18,9 +18,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
     <parent>
-        <groupId>com.alibaba.nacos</groupId>
+        <groupId>io.github.pig-mesh.nacos</groupId>
         <artifactId>nacos-all</artifactId>
-        <version>${revision}</version>
+        <version>3.3.0</version>
     </parent>
     
     <modelVersion>4.0.0</modelVersion>
@@ -45,7 +45,7 @@
             <artifactId>nacos-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-persistence</artifactId>
         </dependency>
         <dependency>
@@ -58,12 +58,12 @@
         </dependency>
     
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-encryption-plugin</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-config-plugin</artifactId>
         </dependency>
         
@@ -108,12 +108,12 @@
             <artifactId>snakeyaml</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-control-plugin</artifactId>
-            <version>${revision}</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin</artifactId>
         </dependency>
         <dependency>
@@ -137,13 +137,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-mysql</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-derby</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
@@ -159,13 +159,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-postgresql</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
+            <groupId>io.github.pig-mesh.nacos</groupId>
             <artifactId>nacos-datasource-plugin-oracle</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
