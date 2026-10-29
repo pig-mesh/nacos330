@@ -28,6 +28,11 @@
     <name>nacos-console ${project.version}</name>
     <url>https://nacos.io</url>
     
+    <properties>
+        <!-- Static UI bundles belong in the runtime JAR, not the Java sources JAR. -->
+        <source.excludeResources>true</source.excludeResources>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
